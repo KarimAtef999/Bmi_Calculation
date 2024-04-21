@@ -3,8 +3,6 @@ import 'dart:math';
 
 import 'Bmi_Screen.dart';
 class Bmi_Calculator extends StatefulWidget {
-  const Bmi_Calculator({super.key});
-
   @override
   State<Bmi_Calculator> createState() => _Bmi_CalculatorState();
 }
@@ -20,14 +18,14 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Center(child: Text('BMI CALCULATOR')),
+        title: Center(child: Text('BMI CALCULATOR',style:TextStyle(color:Colors.white,))),
       ),
       body: Column(
         children: [
           Expanded(
             child: Container(
               width: double.infinity,
-              color: Colors.white,
+              color: Colors.black,
               child: Padding(
                 padding: const EdgeInsets.all(7.7),
                 child: Row(
@@ -44,7 +42,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                             borderRadius: BorderRadius.circular(10),
                             color: isMale ? Colors.blue : Colors.grey[400],
                           ),
-                          child: const Column(
+                          child: Column(
                             children: [
                               Icon(
                                 Icons.male,
@@ -63,7 +61,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10),
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
@@ -76,7 +74,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                             borderRadius: BorderRadius.circular(10),
                             color: isMale ? Colors.grey[400] : Colors.blue,
                           ),
-                          child: const Column(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
@@ -107,7 +105,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
             (
 
               width:double.infinity,
-              color: Colors.white,
+              color: Colors.black,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal:7.7),
                 child: Container(
@@ -118,7 +116,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:
                     [
-                      const Center(
+                      Center(
                         child: Text('HEIGHT',
                           style:TextStyle(
                             fontWeight: FontWeight.bold,
@@ -127,7 +125,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5,),
+                      SizedBox(height: 5,),
                       Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -135,15 +133,15 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                           textBaseline: TextBaseline.alphabetic,
                           children:
                           [
-                            Text('${height.round()}',
-                              style:const TextStyle(
+                            Text('${height?.round()}',
+                              style:TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25,
                                 color:Colors.black,
                               ),
                             ),
 
-                            const Text('CM',
+                            Text('CM',
                               style:TextStyle(
                                 fontSize: 10,
                                 color:Colors.black,
@@ -153,6 +151,7 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                         ),
                       ),
                       Slider(
+                        activeColor:Colors.blue ,
                         value:height,
                         min: 80,
                         max:220,
@@ -169,15 +168,14 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                 ),
               ))),
 
-          Expanded(child: Padding(
-            padding: const EdgeInsets.all(
-                7.7),
-            child: Container
+          Expanded(child: Container
 
-              (
+            (
 
-                width:double.infinity,
-                color: Colors.white,
+              width:double.infinity,
+              color: Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(7.7),
                 child: Container(
                   child: Row(
                     children:
@@ -190,15 +188,15 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
 
                             children:
                             [
-                              const Text('AGE',
+                              Text('AGE',
                                 style:TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 10,
                                   color:Colors.black,
                                 ),
                               ),
-                              Text('$age',
-                                style:const TextStyle(
+                              Text('${age}',
+                                style:TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   color:Colors.black,
@@ -215,10 +213,10 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                                     });
                                     print(age);
                                   },
+                                    child:Icon(Icons.remove),
                                     mini:true,
-                                    child:const Icon(Icons.remove),
                                   ),
-                                  const SizedBox(width:10),
+                                  SizedBox(width:10),
                                   FloatingActionButton(onPressed: (){
                                     setState(() {
                                       age++;
@@ -226,15 +224,15 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                                     });
                                     print(age);
                                   },
+                                    child:Icon(Icons.add),
                                     mini:true,
-                                    child:const Icon(Icons.add),
                                   ),
                                 ],)
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(width:10),
+                      SizedBox(width:10),
                       Expanded(
                         child: Container(  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
                           color: Colors.grey[400],
@@ -243,15 +241,15 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
 
                             children:
                             [
-                              const Text('Weight',
+                              Text('Weight',
                                 style:TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 10,
                                   color:Colors.black,
                                 ),
                               ),
-                              Text('$weight',
-                                style:const TextStyle(
+                              Text('${weight}',
+                                style:TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   color:Colors.black,
@@ -268,10 +266,10 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                                     });
                                     print(weight);
                                   },
+                                    child:Icon(Icons.remove),
                                     mini:true,
-                                    child:const Icon(Icons.remove),
                                   ),
-                                  const SizedBox(width:10),
+                                  SizedBox(width:10),
                                   FloatingActionButton(onPressed: (){
                                     setState(() {
                                       weight++;
@@ -279,8 +277,8 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
                                     });
                                     print(weight);
                                   },
+                                    child:Icon(Icons.add),
                                     mini:true,
-                                    child:const Icon(Icons.add),
                                   ),
                                 ],)
                             ],
@@ -290,32 +288,32 @@ class _Bmi_CalculatorState extends State<Bmi_Calculator> {
 
                     ],
                   ),
-                )),
-          )),
+                ),
+              ))),
 
 
 
-          SizedBox(
+          Container(
             width:double.infinity,
             child: MaterialButton(
 
               color: Colors.black,
               height: 50,
               onPressed: () {
-                double result =weight/pow(height/100,2);
-                print (result.round);
+                double Bmi =weight/pow(height/100,2);
+                print (Bmi.round);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder:(contxt) => Bmi_Screen(
                       age:age,
                       isMale:isMale,
-                      result: result.round(),
+                      Bmi: Bmi.round(),
                     ),
                   ),
                 );
               },
-              child: const Center(
+              child: Center(
                 child: Text('Calculate',
                   style:TextStyle(fontSize:30,
                     color:Colors.white,

@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 class Bmi_Screen extends StatelessWidget{
   bool isMale=true;
   int age=0;
-  int result=0;
+  int Bmi=0;
   Bmi_Screen(
-      {super.key, 
+      {
         required this.isMale,
-        required this.result,
+        required this.Bmi,
         required this.age,
       });
+
+  String getBmiCategory() {
+    if (Bmi < 18.5) {
+      return 'Underweight';
+    } else if (Bmi < 25) {
+      return 'Normal weight';
+    } else if (Bmi < 30) {
+      return 'Overweight';
+    } else {
+      return 'Obese';
+    }
+  }
 
 
   @override
@@ -17,31 +29,76 @@ class Bmi_Screen extends StatelessWidget{
 
     return Scaffold(
       appBar: AppBar(
-        title:const Text('BMI RESULT',
+
+        backgroundColor: Colors.black,
+        title:Text('BMI RESULT',
           style:TextStyle(fontSize: 30,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
 
         ),
       ),
-      body: Center(
-        child:   Column(
+      body: Container(color: Colors.black,
 
-            mainAxisAlignment: MainAxisAlignment.center,
+        child:   Center(
+          child:   Column(
+
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:
+              [
+
+                Divider(height: 10,
+                  color: Colors.blue,
+                  thickness: 7.5,
+                  indent: 70,
+                  endIndent: 70,
+                ),
+
+
+                Text(
+                  'GENDER : ${isMale ? 'MALE' : 'FEMALE'}',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.white,),
+                ),
+                Divider(height: 10,
+                  color: Colors.blue,
+                  thickness: 7.5,
+                  indent: 70,
+                  endIndent: 70,
+                ),
+                Text(
+                  'BMI : $Bmi',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.white,),
+                ),
+                Divider(height: 10,
+                  color: Colors.blue,
+                  thickness: 7.5,
+                  indent: 70,
+                  endIndent: 70,
+                ),
+                Text(
+                  'AGE : $age',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.white,),
+                ),
+                Divider(height: 10,
+                  color: Colors.blue,
+                  thickness: 7.5,
+                  indent: 70,
+                  endIndent: 70,
+                ),
+                Text(
+                  'BMI CATEGORY : ${getBmiCategory()}',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.white,overflow: TextOverflow.ellipsis,),
+                ),
 
 
 
-            children:
-
-            [
-
-              Text('GENDER :${isMale ?'MALe':'FEMALE'}',style: const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-              Text('RESULT :$result',style: const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-              Text('AGE :$age',style: const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
 
 
+              ]),
 
-            ]),
+        ),
       ),
 
     );
